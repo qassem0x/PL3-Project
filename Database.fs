@@ -1,5 +1,7 @@
 module Database
 
+// SQLite persistence layer for dictionary entries.
+
 open System
 open Microsoft.Data.Sqlite
 

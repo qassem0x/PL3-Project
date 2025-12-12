@@ -1,5 +1,7 @@
 namespace DictionaryGui
 
+// Application entry point: configures Avalonia and starts the desktop lifetime.
+
 open System
 open Avalonia
 open Avalonia.ReactiveUI

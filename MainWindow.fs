@@ -1,5 +1,7 @@
 namespace DictionaryGui
 
+// Main window UI logic: wires controls to SQLite-backed dictionary operations.
+
 open System
 open Avalonia
 open Avalonia.Controls
@@ -12,6 +14,7 @@ open Database
 type MainWindow() as this =
     inherit Window()
 
+    // In-memory view of DB entries used for binding.
     let mutable entries: Entry list = []
 
     // Controls (assigned after XAML is loaded)
@@ -28,6 +31,7 @@ type MainWindow() as this =
     let mutable clearSearchButton: Button = Unchecked.defaultof<_>
     let mutable exitButton: Button = Unchecked.defaultof<_>
 
+    // Rebind the list to either filtered results or all entries.
     let refreshList (items: Entry list option) =
         let toShow =
             match items with
@@ -37,8 +41,8 @@ type MainWindow() as this =
         // Bind entries to the ItemsSource of the list
         resultsList.ItemsSource <- (toShow :> System.Collections.IEnumerable)
 
+    // Simple feedback via window title to avoid extra dependencies.
     let showError (msg: string) =
-        // Simple feedback via window title to avoid extra dependencies
         this.Title <- $"Error: {msg}"
 
     let showInfo (msg: string) =

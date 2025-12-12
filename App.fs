@@ -1,5 +1,7 @@
 namespace DictionaryGui
 
+// Avalonia application shell: loads global XAML and opens the main window.
+
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.Markup.Xaml

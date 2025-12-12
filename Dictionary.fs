@@ -1,5 +1,7 @@
 module Dictionary
 
+// Pure domain helpers: entry model, in-memory dictionary operations, and JSON utilities.
+
 open System
 open System.Text.Json
 open System.Text.Json.Serialization
